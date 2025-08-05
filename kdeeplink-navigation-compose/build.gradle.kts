@@ -53,7 +53,7 @@ kotlin {
     
     sourceSets {
         commonMain.dependencies {
-            implementation(projects.kdeeplinkCore)
+            api(projects.kdeeplinkCore)
             implementation(libs.navigation.compose)
         }
         commonTest.dependencies {
@@ -79,7 +79,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.lucasferreiramachado",
         artifactId = "kdeeplink-navigation-compose",
-        version = "0.1.0"
+        version = "0.2.0"
     )
 
     // Configure POM metadata for the published artifact
