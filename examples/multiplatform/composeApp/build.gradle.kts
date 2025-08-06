@@ -27,8 +27,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            export(projects.kdeeplinkCore)
-            export(projects.kdeeplinkNavigationCompose)
+            export(projects.kdeeplinkNavigationComposeExternal)
 
             baseName = "ComposeApp"
             isStatic = true
@@ -79,8 +78,10 @@ kotlin {
             implementation(libs.material.icons.core)
             implementation(libs.material.icons.extended)
 
-            api(projects.kdeeplinkCore)
-            api(projects.kdeeplinkNavigationCompose)
+            api(projects.kdeeplinkNavigationComposeExternal)
+
+            implementation(projects.kdeeplinkCore)
+            implementation(projects.kdeeplinkNavigationCompose)
 
             implementation(libs.kcoordinator)
             implementation(libs.kcoordinator.navigation.compose)

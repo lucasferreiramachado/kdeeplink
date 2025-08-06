@@ -29,5 +29,6 @@ dependencyResolutionManagement {
 }
 
 include(":examples:multiplatform:composeApp")
+include(":kdeeplink-navigation-compose-external")
 include(":kdeeplink-navigation-compose")
 include(":kdeeplink-core")

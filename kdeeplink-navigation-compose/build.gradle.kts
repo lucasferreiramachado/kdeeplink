@@ -53,7 +53,7 @@ kotlin {
     
     sourceSets {
         commonMain.dependencies {
-            api(projects.kdeeplinkCore)
+            implementation(projects.kdeeplinkCore)
             implementation(libs.navigation.compose)
         }
         commonTest.dependencies {
@@ -85,7 +85,7 @@ mavenPublishing {
     // Configure POM metadata for the published artifact
     pom {
         name.set("kdeeplink-navigation-compose")
-        description.set("A lightweight, cross-platform Coordinator pattern library, designed for Navigation Compose library.")
+        description.set("A lightweight, cross-platform deeplink library designed for Navigation Compose library.")
         inceptionYear.set("2025")
         url.set("https://github.com/lucasferreiramachado/kdeeplink")
 

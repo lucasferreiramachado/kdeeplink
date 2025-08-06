@@ -9,11 +9,11 @@ import androidx.navigation.compose.rememberNavController
 import com.lucasferreiramachado.kcoordinator.KCoordinator
 import com.lucasferreiramachado.kcoordinator.KCoordinatorAction
 import com.lucasferreiramachado.kcoordinator.compose.RootComposeKCoordinator
-import com.lucasferreiramachado.kdeeplink.compose.external.listenExternalDeeplink
+import com.lucasferreiramachado.kdeeplink.compose.external.listenExternalUriDeeplink
+import com.lucasferreiramachado.kdeeplink.example.multiplatform.coordinators.FeaturesCoordinatorAction
 import com.lucasferreiramachado.kdeeplink.example.multiplatform.coordinators.app.ui.screens.SplashScreen
 import com.lucasferreiramachado.kdeeplink.example.multiplatform.di.DeeplinkCoordinatorFactory
 import com.lucasferreiramachado.kdeeplink.example.multiplatform.di.FeaturesCoordinatorFactory
-import com.lucasferreiramachado.kdeeplink.example.multiplatform.coordinators.FeaturesCoordinatorAction
 import kotlinx.coroutines.delay
 import kotlinx.serialization.Serializable
 
@@ -72,7 +72,7 @@ class AppCoordinator(
     override fun start(startDestination: Any, initialAction: AppCoordinatorAction) {
         val navHostController = rememberNavController()
 
-        navHostController.listenExternalDeeplink()
+        navHostController.listenExternalUriDeeplink()
 
         NavHost(
             startDestination = startDestination,

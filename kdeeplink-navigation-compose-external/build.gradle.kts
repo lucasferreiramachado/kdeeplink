@@ -7,6 +7,8 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.composeCompiler)
     id("com.vanniktech.maven.publish") version "0.28.0"
 }
 
@@ -25,7 +27,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "kdeeplink"
+            baseName = "kdeeplink-navigation-compose"
             isStatic = true
         }
     }
@@ -51,6 +53,7 @@ kotlin {
     
     sourceSets {
         commonMain.dependencies {
+            implementation(libs.navigation.compose)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -59,7 +62,7 @@ kotlin {
 }
 
 android {
-    namespace = "io.github.lucasferreiramachado.kdeeplink.core"
+    namespace = "io.github.lucasferreiramachado.kdeeplink.navigation.compose.external"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -74,14 +77,14 @@ mavenPublishing {
     // Define coordinates for the published artifact
     coordinates(
         groupId = "io.github.lucasferreiramachado",
-        artifactId = "kdeeplink",
+        artifactId = "kdeeplink-navigation-compose-external",
         version = "0.3.0"
     )
 
     // Configure POM metadata for the published artifact
     pom {
-        name.set("kdeeplink")
-        description.set("A lightweight, cross-platform deeplink library, written in pure Kotlin.")
+        name.set("kdeeplink-navigation-compose-external")
+        description.set("A lightweight deeplink library for Navigation Compose library, to listen external uri deeplinks on non compose native platforms like iOS, Desktop and Web.")
         inceptionYear.set("2025")
         url.set("https://github.com/lucasferreiramachado/kdeeplink")
 

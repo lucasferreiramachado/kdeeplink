@@ -1,6 +1,6 @@
-package com.lucasferreiramachado.kdeeplink.external
+package com.lucasferreiramachado.kdeeplink.compose.external
 
-public object KDeeplinkExternalUriHandler {
+public object DeeplinkExternalUriHandler {
     private var cached: String? = null
 
     public var listener: ((uri: String) -> Unit)? = null
